@@ -33,7 +33,7 @@ namespace Legionnaries
         public static string IntToRoman(int num)
         {
             var result = string.Empty;
-            var map = new Dictionary<string, int>
+            foreach (var pair in new Dictionary<string, int>
             {
                 {"M", 1000 },
                 {"CM", 900},
@@ -48,8 +48,8 @@ namespace Legionnaries
                 {"V", 5},
                 {"IV", 4},
                 {"I", 1}
-            };
-            foreach (var pair in map)
+            })
+
             {
                 result += string.Join(string.Empty, Enumerable.Repeat(pair.Key, num / pair.Value));
                 num %= pair.Value;
